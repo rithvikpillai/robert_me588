@@ -5,7 +5,7 @@ The playfield is a 4x4 ft square field divided into a white starting sqaure and 
 
 The approach taken to accomplish this task is to set a pre-defined route that covers each square exactly once. At each line between squares, the robot will stop and check for the selected color, and decides to deploy a foam cube or not depending on the color detection. For robustness and ease of editing, the pre-defined route is accomplished using a finite state machine which actuates a PID controller (controlling DC motors) and switches states according to a line sensor.
 
-<img src="/repository/assets/employee.png" alt="Employee data" title="Employee Data title">
+<img src="/repository/assets/finalprototype.png" title="Final Prototype">
 
 <b> Hardware </b>
 - x1 Skitter Chassis Frame (from AndyMark - am-4344a) // I would recommend 3D printing this frame
