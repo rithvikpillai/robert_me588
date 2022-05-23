@@ -7,6 +7,11 @@ The approach taken to accomplish this task is to set a pre-defined route that co
 
 <img src="/repository/assets/finalprototype.png" title="Final Prototype">
 
+<p align="center">
+  <img src="/repository/assets/finalprototype.png" title="hover text">
+</p>
+
+
 <b> Hardware </b>
 - x1 Skitter Chassis Frame (from AndyMark - am-4344a) // I would recommend 3D printing this frame
 - x1 Caster Ball (from Andymark - am-4353)
