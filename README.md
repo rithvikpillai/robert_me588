@@ -46,7 +46,7 @@ The approach taken to accomplish this task is to set a pre-defined route that co
 - x1 Pushbutton
 - x1 3-Way DIP Switch
 
-Please refer to the electrical schematic provided to see how all of these components are wired, and the reference photos to see how the robot is set up, although it is fairly intuitive.
+Please refer to the electrical schematic provided to see how all of these components are wired, and the reference photos to see how the robot is set up, although it is fairly intuitive. The total cost of our project was ~ 70 USD, although we did have many of the parts on hand from the ME department and our own personal projects, which would bring the total cost estimate to ~ 150 USD.
 
 <b> Software </b>
 
