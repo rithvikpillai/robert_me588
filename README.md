@@ -21,7 +21,7 @@ The approach taken to accomplish this task is to set a pre-defined route that co
 - x1 12 V Li-Ion Battery, 3000 mAh (from AndyMark - am-4347)
 
 <i> Dispenser Sub-system </i>
-- x1 3D Printed 5pc Dispenser Mechanism // Unfortunately, I do not have access to the CAD files for the mechanism but its simple enough to design with reference
+- x1 3D Printed 5pc Dispenser Mechanisms // Unfortunately, I do not have access to the CAD files for the mechanism but its simple enough to design with reference to the chassis and the stepper motor dimensions
 - x1 28BYJ-48 Stepper Motor
 - x1 ULN2003 Stepper Motor Driver
 - x1 TCS34725 Color Sensor
@@ -54,7 +54,7 @@ With these measurements available, a simple PID control loop can be designed to 
 
 <b><i> Dispenser Sub-system </i></b>
 
-The dispenser sub-system is actuated using a stepper motor + driver which is controlled by the readings of a color sensor. From the TCS34725 library, readings of illuminance, red, green, and blue values are returned from the sensor output. Based on the specific application, 'if' conditionals are created with experimentally determined color thresholds from the physical playfield. When the output of the conditionals (red, blue, or yellow) matches the color selected in the input system, this color is sent to the correct LED indicator and  the stepper motor is actuated. In this code, a program is written to output exactly one step by writing a specific order of binary codes to the stepper driver pins (1000, 1100, 0100, 0110, 0010, 0011, 0001, 1001). This program is then called 104 times to rotate the stepper motor about 72 degrees to dispense exactly one foam cube. I would recommend simply using a library like Stepper.h to make your life easier.
+The dispenser sub-system is actuated using a stepper motor + driver which is controlled by the readings of a color sensor. From the TCS34725 library, readings of illuminance, red, green, and blue values are returned from the sensor output. Based on the specific application, 'if' conditionals are created with experimentally determined color thresholds from the physical playfield. When the output of the conditionals (red, blue, or yellow) matches the color selected in the input system, this color is sent to the correct LED indicator and  the stepper motor is actuated. In this code, a program is written to output exactly one step by writing a specific order of binary codes to the stepper driver pins (1000, 1100, 0100, 0110, 0010, 0011, 0001, 1001). This program is then called 104 times to rotate the stepper motor about 72 degrees to dispense exactly one foam cube. Alternatively, I would recommend simply using a library like Stepper.h to make your life easier.
 
 <b> <i> Finite State Machine </i> </b>
 
@@ -83,8 +83,10 @@ Once the robot has moved to the center of the square, the PID gains will be shif
 Finally, there is an end state where the robot stops moving, and turns off all LED indicators. This end state is triggered when the total number of lines traversed and total number of turns are completed. The way this is achieved is by stepping through two arrays (one for lines, one for turns) during the state transitions.
 
 The pre-defined route shown in the report can be translated for this robot to two arrays: 
+
 lineCount[] = {3, 1, 2, 1, 2, 1, 3, 3};
+
 turnDir[] = {L, L, R, R, L, L, L, L};
 
-The robot will run through States 1 -> 2 -> 3 -> 1 ... 3 times. After the 3rd time, it will complete a turn by going to State 4 -> 5. It will then run through States 1 -> 2 -> 3 -> 1 ... 1 time, then complete another left turn by doing State 4 -> 5. Then it will run States 1 -> 2 -> 3 2 times, then complete a right turn with the same process. This will be repeated a total of 8 times until the pre-defined route is completed. It's a bit odd to wrap one's head around, but is in fact a very intuitive, easily modifiable, and robust method to run through a pre-defined route.
+The robot will run through States 1 -> 2 -> 3 -> 1 ... <i>three</i> times. After the 3rd time, it will complete a <i>left</i> turn by going to State 4 -> 5. It will then run through States 1 -> 2 -> 3 -> 1 ... <i>one</i> time, then complete another <i>left</i> turn by doing State 4 -> 5. Then it will run States 1 -> 2 -> 3 <i>two</i> times, then complete a <i>right</i> turn with the same process. This will be repeated a total of 8 times until the pre-defined route is completed. It's a bit odd to wrap one's head around, but is in fact a very intuitive, easily modifiable, and robust method to run through a pre-defined route.
 
