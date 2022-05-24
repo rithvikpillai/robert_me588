@@ -5,10 +5,8 @@ The playfield is a 4x4 ft square field divided into a white starting square and 
 
 The approach taken to accomplish this task is to set a pre-defined route that covers each square exactly once. At each line between squares, the robot will stop and check for the selected color, and decides to deploy a foam cube or not depending on the color detection. For robustness and ease of editing, the pre-defined route is accomplished using a finite state machine which actuates a PID controller (controlling DC motors) and switches states according to a line sensor.
 
-<p align="center">
 ![alt text](https://github.com/rithvikpillai/Search-and-Deploy-Bot/blob/main/finalprototype.png?raw=true)
-</p>
-  
+
 <b> Hardware </b>
 - x1 Skitter Chassis Frame (from AndyMark - am-4344a) // I recommend 3D printing this frame
 - x1 Caster Ball (from Andymark - am-4353)
@@ -24,12 +22,20 @@ The approach taken to accomplish this task is to set a pre-defined route that co
 - x2 PLA wheels + rubber O-rings (from AndyMark - am-4354 & am-4340) // I recommend 3D printing the wheels
 - x1 12 V Li-Ion Battery, 3000 mAh (from AndyMark - am-4347)
 
+![alt text](https://github.com/rithvikpillai/Search-and-Deploy-Bot/blob/main/driveprototype.png?raw=true)
+
 <i> Dispenser Sub-system </i>
 - x1 3D Printed 5pc Dispenser Mechanisms // Unfortunately, I do not have access to the CAD files for the mechanism but its simple enough to design with reference to the chassis and the stepper motor dimensions
 - x1 28BYJ-48 Stepper Motor
 - x1 ULN2003 Stepper Motor Driver
 - x1 TCS34725 Color Sensor
 - x1 9V battery
+
+![alt text](https://github.com/rithvikpillai/Search-and-Deploy-Bot/blob/main/dispensercad.png?raw=true)
+
+![alt text](https://github.com/rithvikpillai/Search-and-Deploy-Bot/blob/main/dispenserprototype.png?raw=true)
+
+![alt text](https://github.com/rithvikpillai/Search-and-Deploy-Bot/blob/main/colorsensor.png?raw=true)
 
 <i> Input & Lighting Sub-system </i>
 - x2 Red LEDs
